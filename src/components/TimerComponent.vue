@@ -5,15 +5,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     props: {
         deadline: {
             type: String,
             required: true,
-        },
-        speed: {
-            type: Number,
-            default: 1000,
         },
     },
     data() {
@@ -22,6 +20,9 @@ export default {
         }
     },
     computed: {
+        ...mapGetters([
+            'getLastAuthor',
+        ]),
         minutes() {
             let minutes = Math.floor((this.timerCount / 60))
             if (minutes < 10) {
@@ -45,12 +46,23 @@ export default {
                         this.timerCount--;
                     }, 1000);
                 } else {
-                    this.$router.push('/fall')
+                    this.$router.push('/result')
                 }
             },
-            immediate: true // This ensures the watcher is triggered upon creation
+            immediate: true
         }
     },
+    mounted() {
+        this.unwatch = this.$store.watch(
+            (state, getters) => getters.getLastAuthor,
+            () => {
+                this.timerCount = 120
+            },
+        )
+    },
+    beforeUnmount() {
+        this.unwatch();
+    }
 
 }
 </script>

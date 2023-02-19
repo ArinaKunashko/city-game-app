@@ -1,10 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import MainPage from '@/pages/MainPage.vue'
 import WelcomePage from '@/pages/WelcomePage'
-import FirstCity from '@/pages/FirstCity.vue'
-import FallPage from '@/pages/FallPage.vue'
-import WinPage from '@/pages/WinPage.vue'
-import OpponentWaiting from '@/pages/OpponentWaiting.vue'
+import GamePage from '@/pages/GamePage.vue'
+import ResultPage from '@/pages/ResultPage.vue'
 
 const routes = [
     {
@@ -17,20 +15,13 @@ const routes = [
     },
     {
         path: '/game',
-        component: FirstCity
+        component: GamePage
     },
     {
-        path: '/fall',
-        component: FallPage
+        path: '/result',
+        component: ResultPage
     },
-    {
-        path: '/win',
-        component: WinPage
-    },
-    {
-        path: '/waiting',
-        component: OpponentWaiting
-    },
+
 ]
 
 const router = createRouter({

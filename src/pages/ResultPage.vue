@@ -1,12 +1,15 @@
 <template>
-    <div class="flex justify-center items-center vh100 ">
-        <div class="block rounded-lg shadow-lg bg-slate-300 max-w-xl">
-            <div class="prose m-10 py-3 px-6 text-center">
+    <div class="flex gap-8 justify-center items-center vh100">
+        <div class="block rounded-lg shadow-lg bg-white max-w-xl">
+            <div class="prose py-3 px-6 text-center">
+                <h4 class="text-xl font-normal">Поздравляем тебя с победой!</h4>
                 <h4 class="text-xl font-normal">К сожалению, твое время вышло!</h4>
+                <h4 class="text-xl font-normal">Твой противник не вспомнил нужный город!</h4>
                 <h4 class="text-xl font-normal">Твой противник победил!</h4>
-                <h4 class="text-red-600 text-3xl"> 00:00</h4>
+                <h4 class="text-green-600 text-3xl "> 00:00</h4>
 
-                <div class="p-6 flex flex-col items-center gap-5">
+
+                <div class="p-6 flex flex-col items-center">
                     <article class="prose">
                         <h4 class="text-xl font-normal">
                             Всего было перечисленно городов: count
@@ -16,7 +19,7 @@
                         <h4 class="text-xl font-semibold">Москва</h4>
                     </article>
                 </div>
-          
+            </div>
             <div class="text-center">
             <button type="button" class="focus:outline-none text-white bg-purple-700 
                                      hover:bg-purple-800 focus:ring-4 
@@ -24,7 +27,7 @@
                                        dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 w-44 h-10">
                 <router-link to='/game'> Начать новую игру </router-link>
             </button>
-        </div>
+
         </div>
         </div>
     </div>
