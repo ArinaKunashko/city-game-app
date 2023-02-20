@@ -43,7 +43,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "FallPage",
+  name: "ResultPage",
   computed: {
     ...mapGetters(["getLastAuthor", "getMessages", "getLastCity"]),
   },

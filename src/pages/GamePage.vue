@@ -91,7 +91,6 @@ export default {
   },
   data: () => ({
     message: "",
-    answer: "",
   }),
   computed: {
     ...mapGetters([
