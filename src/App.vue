@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
   
@@ -14,6 +13,6 @@ export default {
 
 <style>
 .app {
-  background-color: blueviolet;
+  background-color: #f3f4f6;
 }
 </style>

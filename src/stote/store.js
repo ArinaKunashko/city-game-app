@@ -332,16 +332,28 @@ const store = createStore({
   mutations: {
     ADD_MESSAGE(state, message) {
       state.messages.push(message)
-    }
+    },
+    RESET_MESSAGE(state) {
+      state.messages = []
+    },
   },
   actions: {
     addMessage({ commit }, { text, author }) {
       commit('ADD_MESSAGE', { text, author })
     },
+    resetMessages({ commit }) {
+      commit('RESET_MESSAGE')
+    }
   },
   getters: {
+    getCities(state) {
+      return state.cities
+    },
     getMessages(state) {
       return state.messages
+    },
+    isValidCity: (state, getters) => (city) => {
+      return getters.getCities.includes(city)
     },
     getLastAuthor(state, getters) {
       const ms = getters.getMessages
@@ -354,12 +366,17 @@ const store = createStore({
       const usedCities = getters.getMessages.map(m => m.text)
       return state.cities.find(city => city.startsWith(letter) && !usedCities.includes(city))
     },
+    getLastCity: (state, getters) => {
+      if (getters.getMessages.length === 0) {
+        return 'Городов не названо'
+      }
+      return getters.getMessages[getters.getMessages.length - 1].text
+    },
     getLastLetter(state, getters) {
       return getters.getMessages[getters.getMessages.length - 1].text
         .replaceAll('ъ', '').replaceAll('ь', '').replaceAll('ы', '').slice(-1).toUpperCase()
-    }
+    },
   }
 }
-
 )
 export default store

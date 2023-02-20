@@ -10,7 +10,7 @@ import { mapGetters } from 'vuex'
   export default {
     data() {
       return {
-        countdown: 120,
+        countdown: 12,
       }
     },
     mounted() {
@@ -24,7 +24,7 @@ import { mapGetters } from 'vuex'
       this.unwatch = this.$store.watch(
             (state, getters) => getters.getLastAuthor,
             () => {
-                this.countdown = 120
+                this.countdown = 12
             },
         )
     },
